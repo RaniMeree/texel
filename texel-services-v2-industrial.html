@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Texel Services | Onderhoud, Elektra & Klusbedrijf</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --charcoal: #1A1A1A;
+            --concrete: #2D2D2D;
+            --steel: #4A4A4A;
+            --rust: #D4652F;
+            --rust-dark: #B54E20;
+            --cream: #F5F0E8;
+            --white: #FFFFFF;
+            --accent: #E8E4DD;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Space Mono', monospace;
+            background: var(--charcoal);
+            color: var(--cream);
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--white);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s ease;
+        }
+
+        /* Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(26, 26, 26, 0.95);
+            border-bottom: 2px solid var(--rust);
+        }
+
+        .navbar {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 72px;
+        }
+
+        .logo-mark {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-mark i {
+            color: var(--rust);
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 48px;
+            height: 100%;
+        }
+
+        .nav-links a {
+            display: flex;
+            align-items: center;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--cream);
+            height: 100%;
+            position: relative;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-links a:hover {
+            color: var(--rust);
+            border-bottom-color: var(--rust);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: 
+                linear-gradient(135deg, rgba(26, 26, 26, 0.97) 0%, rgba(45, 45, 45, 0.95) 100%),
+                url('https://images.unsplash.com/photo-1581578731117-104f884470d4?auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 120px 40px;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .hero-text {
+            position: relative;
+        }
+
+        .hero-text::before {
+            content: '';
+            position: absolute;
+            left: -40px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--rust);
+        }
+
+        .hero-label {
+            display: inline-block;
+            font-size: 0.7rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--rust);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero-text h1 {
+            font-size: 5rem;
+            line-height: 1;
+            margin-bottom: 24px;
+            color: var(--white);
+        }
+
+        .hero-text h1 span {
+            color: var(--rust);
+        }
+
+        .hero-text p {
+            font-size: 1rem;
+            color: var(--accent);
+            margin-bottom: 40px;
+            max-width: 520px;
+            line-height: 1.8;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+
+        .stat {
+            border-left: 2px solid var(--steel);
+            padding-left: 20px;
+        }
+
+        .stat-number {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--rust);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--steel);
+            margin-top: 8px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+            background: var(--rust);
+            color: var(--white);
+            padding: 20px 40px;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 500;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            transition: 0.3s ease;
+            border: 2px solid var(--rust);
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: var(--rust);
+        }
+
+        .hero-visual {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .logo-badge {
+            position: relative;
+            width: 320px;
+            height: 320px;
+            border: 3px solid var(--rust);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(26, 26, 26, 0.9);
+        }
+
+        .logo-badge::before {
+            content: '';
+            position: absolute;
+            inset: 8px;
+            border: 1px solid var(--steel);
+        }
+
+        .logo-badge img {
+            width: 160px;
+            height: auto;
+            filter: brightness(0) invert(1);
+        }
+
+        /* About Section */
+        .about {
+            padding: 120px 40px;
+            background: var(--concrete);
+            position: relative;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: repeating-linear-gradient(
+                90deg,
+                var(--rust) 0,
+                var(--rust) 20px,
+                transparent 20px,
+                transparent 40px
+            );
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .about h2::after {
+            content: '';
+            position: absolute;
+            bottom: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--rust);
+        }
+
+        .about p {
+            font-size: 1rem;
+            color: var(--accent);
+            margin-bottom: 24px;
+            line-height: 2;
+        }
+
+        .about-tagline {
+            display: inline-block;
+            margin-top: 48px;
+            padding: 24px 48px;
+            border: 2px solid var(--rust);
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.3rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--rust);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 120px 40px;
+            background: var(--charcoal);
+        }
+
+        .services h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 80px;
+        }
+
+        .services-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+        }
+
+        .service-card {
+            padding: 48px 36px;
+            border: 1px solid var(--steel);
+            transition: 0.3s ease;
+            position: relative;
+        }
+
+        .service-card:hover {
+            background: var(--concrete);
+            border-color: var(--rust);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: var(--rust);
+            transition: 0.3s ease;
+        }
+
+        .service-card:hover::before {
+            height: 100%;
+        }
+
+        .service-card i {
+            font-size: 2rem;
+            color: var(--rust);
+            margin-bottom: 24px;
+            display: block;
+        }
+
+        .service-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 16px;
+            color: var(--white);
+        }
+
+        .service-card p {
+            color: var(--steel);
+            font-size: 0.85rem;
+            line-height: 1.7;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 120px 40px;
+            background: var(--concrete);
+        }
+
+        .contact h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+        }
+
+        .contact-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .contact-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 16px;
+        }
+
+        .contact-info > p {
+            color: var(--steel);
+            margin-bottom: 40px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+
+        .contact-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--charcoal);
+            border: 1px solid var(--rust);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--rust);
+            font-size: 1rem;
+        }
+
+        .contact-item a, .contact-item span {
+            color: var(--cream);
+            font-weight: 500;
+        }
+
+        .contact-form {
+            background: var(--charcoal);
+            padding: 40px;
+            border: 1px solid var(--steel);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 16px;
+            margin-bottom: 16px;
+            border: 1px solid var(--steel);
+            background: var(--concrete);
+            font-family: 'Space Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--cream);
+            transition: 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--rust);
+        }
+
+        .contact-form textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .contact-form .btn {
+            width: 100%;
+            justify-content: center;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--charcoal);
+            color: var(--cream);
+            padding: 48px 40px;
+            text-align: center;
+            border-top: 1px solid var(--steel);
+        }
+
+        footer h3 {
+            font-size: 1.3rem;
+            margin-bottom: 24px;
+        }
+
+        .legal-info {
+            font-size: 0.75rem;
+            margin-bottom: 24px;
+            color: var(--steel);
+            letter-spacing: 1px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .social-links a {
+            width: 44px;
+            height: 44px;
+            border: 1px solid var(--steel);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            transition: 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--rust);
+            border-color: var(--rust);
+        }
+
+        footer p {
+            font-size: 0.7rem;
+            color: var(--steel);
+            letter-spacing: 1px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-visual {
+                justify-content: center;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 0 24px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content {
+                padding: 100px 24px;
+            }
+
+            .hero-text h1 {
+                font-size: 3rem;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 24px;
+            }
+
+            .logo-badge {
+                width: 240px;
+                height: 240px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .services, .about, .contact {
+                padding: 80px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo-mark">
+                <i class="fas fa-wrench"></i>
+                TEXEL SERVICES
+            </div>
+            <div class="nav-links">
+                <a href="#over-ons">Over Ons</a>
+                <a href="#diensten">Diensten</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <span class="hero-label">Vakmanschap & Betrouwbaarheid</span>
+                <h1>Texel <span>Services</span></h1>
+                <p>Kleine klussen die het verschil maken. Wij leveren vakmanschap, netheid en betrouwbaarheid bij elk project. Van elektrawerk tot timmerwerk.</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">5+</div>
+                        <div class="stat-label">Jaar Ervaring</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Projecten</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Betrouwbaar</div>
+                    </div>
+                </div>
+                <a href="#contact" class="btn">
+                    Vraag een offerte aan
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="hero-visual">
+                <div class="logo-badge">
+                    <img src="logo.png" alt="Texel Services Logo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="over-ons" class="about">
+        <div class="about-content">
+            <h2>Over Texel Services</h2>
+            <p>Texel Services biedt onderhoud en reparatiediensten aan zowel particulieren als bedrijven. Wij focussen op praktische klussen die met de nodige vakmanschap, netheid en volgens afspraak worden uitgevoerd.</p>
+            <p>Betrouwbaarheid, heldere communicatie en een zorgvuldige afwerking staan bij ons voorop. Zo weet u altijd precies waar u aan toe bent.</p>
+            <span class="about-tagline">Kleine klussen. Groot verschil.</span>
+        </div>
+    </section>
+
+    <section id="diensten" class="services">
+        <h2>Onze Diensten</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-bolt"></i>
+                <h3>Elektra</h3>
+                <p>Vervangen van schakelaars, stopcontacten en verlichting.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-tools"></i>
+                <h3>Reparaties</h3>
+                <p>Kleine reparaties en preventief onderhoud in en om het huis.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-couch"></i>
+                <h3>Montage</h3>
+                <p>Vakkundige montage van meubels, kasten en accessoires.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-magic"></i>
+                <h3>Keukenrenovatie</h3>
+                <p>Reparatie en het wrappen van keukendeurtjes met folie.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-hammer"></i>
+                <h3>Timmerwerk</h3>
+                <p>Kleine timmerklussen, planken ophangen en afwerking.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-wrench"></i>
+                <h3>Algemeen Onderhoud</h3>
+                <p>Diverse service en onderhoudsklussen voor woning of kantoor.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Contact</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Neem contact op</h3>
+                <p>Heeft u een klus? Wij staan voor u klaar om u te helpen.</p>
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                    <a href="tel:0643708128">06 4370 8128</a>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                    <a href="mailto:info@texelservices.nl">info@texelservices.nl</a>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fas fa-globe"></i></div>
+                    <span>www.texelservices.nl</span>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                    <input type="text" name="name" placeholder="UW NAAM" required>
+                    <input type="email" name="email" placeholder="UW E-MAILADRES" required>
+                    <textarea name="message" rows="5" placeholder="BESCHRIJF UW KLUS OF VRAAG..." required></textarea>
+                    <button type="submit" class="btn">Verstuur Bericht</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <h3>Texel Services</h3>
+        <div class="legal-info">
+            KvK-nummer: 99574039 | BTW-ID: NL005395866B38
+        </div>
+        <div class="social-links">
+            <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <p>&copy; 2024 TEXEL SERVICES. ALLE RECHTEN VOORBEHOUDEN.</p>
+    </footer>
+
+</body>
+</html>
