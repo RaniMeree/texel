@@ -37,21 +37,21 @@ export default function Hero() {
       {/* Decorative shapes */}
       <div style={{
         position: 'absolute',
-        width: 400,
-        height: 400,
+        width: 500,
+        height: 500,
         borderRadius: '50%',
-        background: 'rgba(0, 59, 111, 0.08)',
-        top: -100,
-        right: -100,
+        background: 'rgba(0, 59, 111, 0.06)',
+        top: -150,
+        right: -150,
       }} />
       <div style={{
         position: 'absolute',
-        width: 300,
-        height: 300,
+        width: 400,
+        height: 400,
         borderRadius: '50%',
-        background: 'rgba(0, 140, 186, 0.08)',
-        bottom: -50,
-        left: -50,
+        background: 'rgba(0, 140, 186, 0.06)',
+        bottom: -100,
+        left: -100,
       }} />
 
       <div
@@ -123,7 +123,7 @@ export default function Hero() {
           </motion.a>
         </motion.div>
 
-        {/* Logo Visual */}
+        {/* Hero Image */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -138,8 +138,8 @@ export default function Hero() {
             style={{
               background: colors.cardBg,
               borderRadius: 32,
-              padding: 48,
-              boxShadow: '0 32px 64px rgba(0, 59, 111, 0.1), 0 16px 32px rgba(0, 59, 111, 0.05)',
+              padding: 16,
+              boxShadow: '0 32px 64px rgba(0, 59, 111, 0.15), 0 16px 32px rgba(0, 59, 111, 0.08)',
               textAlign: 'center',
               position: 'relative',
               overflow: 'hidden',
@@ -153,8 +153,25 @@ export default function Hero() {
               height: 6,
               background: `linear-gradient(90deg, ${colors.primary}, ${colors.accent})`,
             }} />
-            <img src="/logo.svg" alt="Texel Services" style={{ width: 160, marginBottom: 24 }} />
-            <p style={{ fontWeight: 700, fontSize: '1.1rem', color: colors.text }}>Kleine klussen. Groot verschil.</p>
+            <img 
+              src="/hero-image.webp" 
+              alt="Texel Services" 
+              style={{ 
+                width: '100%', 
+                maxWidth: 400,
+                height: 'auto', 
+                borderRadius: 20,
+                display: 'block',
+              }} 
+            />
+            <p style={{ 
+              fontWeight: 700, 
+              fontSize: '1.1rem', 
+              color: colors.text,
+              marginTop: 16,
+            }}>
+              Kleine klussen. Groot verschil.
+            </p>
           </div>
         </motion.div>
       </div>
