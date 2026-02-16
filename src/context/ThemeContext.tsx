@@ -1,25 +1,19 @@
 'use client';
 
-import { createContext, useContext, useState, ReactNode } from 'react';
-import { Theme, themes, themeFonts, ThemeColors } from '@/lib/theme';
+import { createContext, useContext, ReactNode } from 'react';
+import { colors, fonts } from '@/lib/theme';
 
 interface ThemeContextType {
-  theme: Theme;
-  colors: ThemeColors;
-  fonts: typeof themeFonts.coastal;
-  setTheme: (theme: Theme) => void;
+  colors: typeof colors;
+  fonts: typeof fonts;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setTheme] = useState<Theme>('coastal');
-
   const value = {
-    theme,
-    colors: themes[theme],
-    fonts: themeFonts[theme],
-    setTheme,
+    colors,
+    fonts,
   };
 
   return (

@@ -45,28 +45,16 @@ const services = [
 ];
 
 export default function Services() {
-  const { colors, theme } = useTheme();
+  const { colors } = useTheme();
 
   return (
     <section
       id="diensten"
       style={{
         padding: '120px 40px',
-        background: theme === 'coastal' ? colors.cardBg : theme === 'industrial' ? colors.background : colors.backgroundAlt,
-        position: 'relative',
+        background: colors.backgroundAlt,
       }}
     >
-      {theme === 'coastal' && (
-        <div style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          height: 1,
-          background: `linear-gradient(90deg, transparent, ${colors.border}, transparent)`,
-        }} />
-      )}
-
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -74,13 +62,11 @@ export default function Services() {
         transition={{ duration: 0.6 }}
         style={{
           textAlign: 'center',
-          fontFamily: theme === 'industrial' ? 'Oswald, sans-serif' : theme === 'friendly' ? 'Nunito, sans-serif' : 'Playfair Display, serif',
+          fontFamily: 'Nunito, sans-serif',
           fontSize: '2.5rem',
           fontWeight: 700,
-          color: theme === 'industrial' ? '#fff' : colors.text,
+          color: colors.text,
           marginBottom: 60,
-          textTransform: theme === 'industrial' ? 'uppercase' : 'none',
-          letterSpacing: theme === 'industrial' ? '2px' : 'normal',
         }}
       >
         Onze Diensten
@@ -92,7 +78,7 @@ export default function Services() {
           margin: '0 auto',
           display: 'grid',
           gridTemplateColumns: 'repeat(3, 1fr)',
-          gap: theme === 'friendly' ? 24 : 40,
+          gap: 24,
         }}
       >
         {services.map((service, index) => (
@@ -104,79 +90,38 @@ export default function Services() {
             transition={{ duration: 0.5, delay: index * 0.1 }}
             whileHover={{ y: -8 }}
             style={{
-              padding: theme === 'friendly' ? '36px 28px' : theme === 'industrial' ? '48px 36px' : '48px 36px',
-              background: theme === 'friendly' ? colors.cardBg : theme === 'coastal' ? colors.background : colors.cardBg,
-              border: theme === 'industrial' ? `1px solid ${colors.border}` : 'none',
-              borderRadius: theme === 'friendly' ? 24 : theme === 'coastal' ? 0 : 0,
-              boxShadow: theme === 'friendly' ? '0 4px 16px rgba(61, 54, 50, 0.04)' : theme === 'coastal' ? 'none' : 'none',
+              padding: '36px 28px',
+              background: colors.cardBg,
+              borderRadius: 24,
+              boxShadow: '0 4px 16px rgba(0, 59, 111, 0.06)',
               transition: 'all 0.3s',
-              position: 'relative',
-              overflow: 'hidden',
             }}
           >
-            {theme === 'coastal' && (
-              <div
-                style={{
-                  position: 'absolute',
-                  top: 0,
-                  left: 0,
-                  width: '100%',
-                  height: 3,
-                  background: colors.primary,
-                  transform: 'scaleX(0)',
-                  transformOrigin: 'left',
-                  transition: 'transform 0.3s',
-                }}
-                className="service-bar"
-              />
-            )}
-            
-            {theme === 'industrial' && (
-              <div
-                style={{
-                  position: 'absolute',
-                  top: 0,
-                  left: 0,
-                  width: 4,
-                  height: '100%',
-                  background: colors.accent,
-                  transform: 'scaleY(0)',
-                  transformOrigin: 'top',
-                  transition: 'transform 0.3s',
-                }}
-                className="service-bar"
-              />
-            )}
-
             <div
               style={{
-                width: theme === 'friendly' ? 72 : 56,
-                height: theme === 'friendly' ? 72 : 56,
-                background: theme === 'friendly' 
-                  ? `linear-gradient(135deg, ${index % 3 === 1 ? colors.accent : '#8FA68A'}, ${index % 3 === 1 ? '#D4917A' : '#A8BE9F'})`
-                  : theme === 'industrial'
-                  ? 'transparent'
-                  : 'transparent',
-                borderRadius: theme === 'friendly' ? 20 : theme === 'coastal' ? 0 : 0,
-                border: theme === 'industrial' ? `1px solid ${colors.accent}` : 'none',
+                width: 72,
+                height: 72,
+                background: index % 2 === 0 
+                  ? colors.primary 
+                  : colors.accent,
+                borderRadius: 20,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                marginBottom: theme === 'friendly' ? 20 : 24,
-                color: theme === 'industrial' ? colors.accent : theme === 'coastal' ? colors.primary : colors.text,
+                marginBottom: 20,
+                color: '#fff',
               }}
             >
-              <service.icon size={theme === 'friendly' ? 28 : 24} />
+              <service.icon size={28} />
             </div>
 
             <h3
               style={{
-                fontFamily: theme === 'industrial' ? 'Oswald, sans-serif' : theme === 'friendly' ? 'Nunito, sans-serif' : 'Playfair Display, serif',
-                fontSize: theme === 'friendly' ? '1.2rem' : '1.3rem',
+                fontFamily: 'Nunito, sans-serif',
+                fontSize: '1.2rem',
                 fontWeight: 700,
-                color: theme === 'industrial' ? '#fff' : colors.text,
+                color: colors.text,
                 marginBottom: 16,
-                textTransform: theme === 'industrial' ? 'uppercase' : 'none',
               }}
             >
               {service.title}
@@ -184,8 +129,8 @@ export default function Services() {
 
             <p
               style={{
-                color: theme === 'industrial' ? colors.textMuted : colors.textMuted,
-                fontSize: theme === 'friendly' ? '0.9rem' : '0.95rem',
+                color: colors.textMuted,
+                fontSize: '0.9rem',
                 lineHeight: 1.7,
               }}
             >
@@ -196,9 +141,6 @@ export default function Services() {
       </div>
 
       <style>{`
-        .service-bar {
-          transform: scaleX(1);
-        }
         @media (max-width: 1024px) {
           div[style*="grid-template-columns: repeat(3"] {
             grid-template-columns: repeat(2, 1fr) !important;

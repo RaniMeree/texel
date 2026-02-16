@@ -4,12 +4,12 @@ import { useTheme } from '@/context/ThemeContext';
 import { FaFacebook, FaLinkedin, FaTiktok } from 'react-icons/fa6';
 
 export default function Footer() {
-  const { colors, theme } = useTheme();
+  const { colors } = useTheme();
 
   return (
     <footer
       style={{
-        background: theme === 'industrial' ? colors.background : theme === 'friendly' ? colors.text : colors.primary,
+        background: colors.primary,
         color: '#fff',
         padding: '60px 40px',
         textAlign: 'center',
@@ -17,12 +17,10 @@ export default function Footer() {
     >
       <h3
         style={{
-          fontFamily: theme === 'industrial' ? 'Oswald, sans-serif' : 'inherit',
+          fontFamily: 'Nunito, sans-serif',
           fontSize: '1.5rem',
           fontWeight: 700,
           marginBottom: 24,
-          textTransform: theme === 'industrial' ? 'uppercase' : 'none',
-          letterSpacing: theme === 'industrial' ? '2px' : 'normal',
         }}
       >
         Texel Services
@@ -32,7 +30,7 @@ export default function Footer() {
         style={{
           fontSize: '0.85rem',
           marginBottom: 24,
-          opacity: theme === 'industrial' ? 0.7 : 0.8,
+          opacity: 0.8,
         }}
       >
         KvK-nummer: 99574039 | BTW-ID: NL005395866B38
@@ -52,8 +50,8 @@ export default function Footer() {
             style={{
               width: 44,
               height: 44,
-              background: theme === 'industrial' ? 'rgba(255, 255, 255, 0.1)' : 'rgba(255, 255, 255, 0.2)',
-              borderRadius: theme === 'friendly' ? 12 : '50%',
+              background: 'rgba(255, 255, 255, 0.2)',
+              borderRadius: 12,
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
