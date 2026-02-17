@@ -32,7 +32,7 @@ export default function Navbar() {
         style={{
           maxWidth: 1400,
           margin: '0 auto',
-          padding: '20px 60px',
+          padding: '16px 60px',
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
@@ -43,7 +43,7 @@ export default function Navbar() {
           <img 
             src="/logo.png" 
             alt="Texel Services" 
-            style={{ height: 48, width: 'auto' }} 
+            style={{ height: 64, width: 'auto' }} 
           />
         </div>
 
