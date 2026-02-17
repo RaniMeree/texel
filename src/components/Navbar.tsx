@@ -39,37 +39,12 @@ export default function Navbar() {
         }}
       >
         {/* Logo */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
-          <div
-            style={{
-              width: 44,
-              height: 44,
-              background: `linear-gradient(135deg, ${colors.primary} 0%, ${colors.primaryLight} 100%)`,
-              borderRadius: 12,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              color: '#fff',
-              boxShadow: `0 4px 16px ${colors.shadow}`,
-            }}
-          >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
-            </svg>
-          </div>
-          <div>
-            <span
-              style={{
-                fontFamily: 'Cormorant Garamond, serif',
-                fontWeight: 600,
-                fontSize: '1.4rem',
-                color: colors.text,
-                letterSpacing: '0.5px',
-              }}
-            >
-              Texel Services
-            </span>
-          </div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+          <img 
+            src="/logo.png" 
+            alt="Texel Services" 
+            style={{ height: 48, width: 'auto' }} 
+          />
         </div>
 
         {/* Desktop Nav */}
