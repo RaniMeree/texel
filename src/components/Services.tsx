@@ -51,26 +51,46 @@ export default function Services() {
     <section
       id="diensten"
       style={{
-        padding: '120px 40px',
+        padding: '140px 60px',
         background: colors.backgroundAlt,
+        position: 'relative',
       }}
     >
-      <motion.h2
-        initial={{ opacity: 0, y: 20 }}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        style={{
-          textAlign: 'center',
-          fontFamily: 'Nunito, sans-serif',
-          fontSize: '2.5rem',
-          fontWeight: 700,
-          color: colors.text,
-          marginBottom: 60,
-        }}
+        style={{ textAlign: 'center', marginBottom: 64 }}
       >
-        Onze Diensten
-      </motion.h2>
+        <span
+          style={{
+            display: 'inline-block',
+            fontFamily: 'Outfit, sans-serif',
+            fontSize: '0.75rem',
+            fontWeight: 600,
+            letterSpacing: '3px',
+            textTransform: 'uppercase',
+            color: colors.accent,
+            marginBottom: 16,
+            padding: '8px 16px',
+            background: `${colors.accent}10`,
+            borderRadius: 6,
+          }}
+        >
+          Onze Diensten
+        </span>
+        <h2
+          style={{
+            fontFamily: 'Cormorant Garamond, serif',
+            fontSize: '3rem',
+            fontWeight: 600,
+            color: colors.text,
+          }}
+        >
+          Wat wij doen
+        </h2>
+      </motion.div>
 
       <div
         style={{
@@ -78,50 +98,69 @@ export default function Services() {
           margin: '0 auto',
           display: 'grid',
           gridTemplateColumns: 'repeat(3, 1fr)',
-          gap: 24,
+          gap: 32,
         }}
       >
         {services.map((service, index) => (
           <motion.div
             key={service.title}
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            whileHover={{ y: -8 }}
+            transition={{ duration: 0.6, delay: index * 0.1 }}
+            whileHover={{ y: -8, boxShadow: `0 24px 48px ${colors.shadowHover}` }}
             style={{
-              padding: '36px 28px',
-              background: colors.cardBg,
-              borderRadius: 24,
-              boxShadow: '0 4px 16px rgba(0, 59, 111, 0.06)',
-              transition: 'all 0.3s',
+              padding: '40px 32px',
+              background: colors.surface,
+              borderRadius: 16,
+              boxShadow: `0 8px 32px ${colors.shadow}`,
+              transition: 'all 0.4s ease',
+              position: 'relative',
+              overflow: 'hidden',
             }}
           >
+            {/* Subtle top accent */}
+            <div style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              height: 3,
+              background: index % 2 === 0 
+                ? `linear-gradient(90deg, ${colors.primary}, ${colors.accent})`
+                : `linear-gradient(90deg, ${colors.accent}, ${colors.primary})`,
+              opacity: 0,
+              transition: 'opacity 0.3s',
+            }} 
+            className="service-accent"
+            />
+
             <div
               style={{
-                width: 72,
-                height: 72,
+                width: 56,
+                height: 56,
                 background: index % 2 === 0 
-                  ? colors.primary 
-                  : colors.accent,
-                borderRadius: 20,
+                  ? `linear-gradient(135deg, ${colors.primary} 0%, ${colors.primaryLight} 100%)`
+                  : `linear-gradient(135deg, ${colors.accent} 0%, ${colors.accentLight} 100%)`,
+                borderRadius: 14,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                marginBottom: 20,
+                marginBottom: 24,
                 color: '#fff',
+                boxShadow: `0 8px 24px ${colors.shadow}`,
               }}
             >
-              <service.icon size={28} />
+              <service.icon size={24} />
             </div>
 
             <h3
               style={{
-                fontFamily: 'Nunito, sans-serif',
-                fontSize: '1.2rem',
-                fontWeight: 700,
+                fontFamily: 'Cormorant Garamond, serif',
+                fontSize: '1.5rem',
+                fontWeight: 600,
                 color: colors.text,
-                marginBottom: 16,
+                marginBottom: 12,
               }}
             >
               {service.title}
@@ -129,8 +168,9 @@ export default function Services() {
 
             <p
               style={{
-                color: colors.textMuted,
-                fontSize: '0.9rem',
+                fontFamily: 'Outfit, sans-serif',
+                color: colors.textSecondary,
+                fontSize: '0.95rem',
                 lineHeight: 1.7,
               }}
             >
@@ -141,12 +181,15 @@ export default function Services() {
       </div>
 
       <style>{`
+        .service-accent {
+          opacity: 1;
+        }
         @media (max-width: 1024px) {
           div[style*="grid-template-columns: repeat(3"] {
             grid-template-columns: repeat(2, 1fr) !important;
           }
         }
-        @media (max-width: 768px) {
+        @media (max-width: 640px) {
           div[style*="grid-template-columns: repeat(3"] {
             grid-template-columns: 1fr !important;
           }

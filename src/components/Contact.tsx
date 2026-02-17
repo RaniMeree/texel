@@ -17,61 +17,69 @@ export default function Contact() {
     <section
       id="contact"
       style={{
-        padding: '120px 40px',
-        background: colors.cardBg,
+        padding: '140px 60px',
+        background: colors.surface,
       }}
     >
-      <motion.h2
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        style={{
-          textAlign: 'center',
-          fontFamily: 'Nunito, sans-serif',
-          fontSize: '2.5rem',
-          fontWeight: 700,
-          color: colors.text,
-          marginBottom: 60,
-        }}
-      >
-        Contact
-      </motion.h2>
-
       <div
         style={{
-          maxWidth: 1000,
+          maxWidth: 1100,
           margin: '0 auto',
           display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
-          gap: 48,
+          gridTemplateColumns: '1fr 1.2fr',
+          gap: 80,
           alignItems: 'start',
         }}
       >
         {/* Contact Info */}
         <motion.div
-          initial={{ opacity: 0, x: -30 }}
+          initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8 }}
         >
-          <h3
+          <span
             style={{
-              fontFamily: 'Nunito, sans-serif',
-              fontSize: '1.5rem',
-              fontWeight: 700,
-              color: colors.text,
+              display: 'inline-block',
+              fontFamily: 'Outfit, sans-serif',
+              fontSize: '0.75rem',
+              fontWeight: 600,
+              letterSpacing: '3px',
+              textTransform: 'uppercase',
+              color: colors.accent,
               marginBottom: 16,
+              padding: '8px 16px',
+              background: `${colors.accent}10`,
+              borderRadius: 6,
+            }}
+          >
+            Contact
+          </span>
+          
+          <h2
+            style={{
+              fontFamily: 'Cormorant Garamond, serif',
+              fontSize: '2.75rem',
+              fontWeight: 600,
+              color: colors.text,
+              marginBottom: 20,
+              letterSpacing: '-0.3px',
             }}
           >
             Neem contact op
-          </h3>
+          </h2>
+          
           <p
             style={{
-              color: colors.textMuted,
+              fontFamily: 'Outfit, sans-serif',
+              color: colors.textSecondary,
               marginBottom: 40,
+              fontSize: '1.05rem',
+              lineHeight: 1.7,
             }}
           >
-            Heeft u een klus? Wij staan voor u klaar om u te helpen.
+            Heeft u een klus? Wij staan voor u klaar om u te helpen. 
+            Neem vrijblijvend contact met ons op.
           </p>
 
           {contactInfo.map((item, index) => (
@@ -81,7 +89,7 @@ export default function Contact() {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ x: 8 }}
               style={{
                 display: 'flex',
@@ -89,27 +97,33 @@ export default function Contact() {
                 gap: 20,
                 marginBottom: 28,
                 textDecoration: 'none',
+                padding: '16px 20px',
+                background: colors.background,
+                borderRadius: 12,
+                transition: 'all 0.3s ease',
               }}
             >
               <div
                 style={{
                   width: 48,
                   height: 48,
-                  background: colors.primary,
-                  borderRadius: 14,
+                  background: `linear-gradient(135deg, ${colors.primary} 0%, ${colors.primaryLight} 100%)`,
+                  borderRadius: 12,
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   color: '#fff',
                   flexShrink: 0,
+                  boxShadow: `0 4px 16px ${colors.shadow}`,
                 }}
               >
                 <item.icon size={20} />
               </div>
               <span
                 style={{
+                  fontFamily: 'Outfit, sans-serif',
                   color: colors.text,
-                  fontWeight: 600,
+                  fontWeight: 500,
                   fontSize: '1rem',
                 }}
               >
@@ -121,19 +135,32 @@ export default function Contact() {
 
         {/* Contact Form */}
         <motion.form
-          initial={{ opacity: 0, x: 30 }}
+          initial={{ opacity: 0, x: 40 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
           action="https://formspree.io/f/YOUR_FORM_ID"
           method="POST"
           style={{
-            background: colors.background,
-            padding: 40,
-            boxShadow: '0 8px 32px rgba(0, 59, 111, 0.06)',
-            borderRadius: 28,
+            background: colors.surface,
+            padding: 48,
+            boxShadow: `0 24px 64px ${colors.shadowHover}, 0 12px 24px ${colors.shadow}`,
+            borderRadius: 24,
+            border: `1px solid ${colors.border}`,
           }}
         >
+          <h3
+            style={{
+              fontFamily: 'Cormorant Garamond, serif',
+              fontSize: '1.6rem',
+              fontWeight: 600,
+              color: colors.text,
+              marginBottom: 32,
+            }}
+          >
+            Stuur ons een bericht
+          </h3>
+          
           <input
             type="text"
             name="name"
@@ -141,15 +168,24 @@ export default function Contact() {
             required
             style={{
               width: '100%',
-              padding: '16px 20px',
+              padding: '18px 24px',
               marginBottom: 20,
               border: `1px solid ${colors.border}`,
-              background: colors.cardBg,
-              fontFamily: 'inherit',
+              background: colors.background,
+              fontFamily: 'Outfit, sans-serif',
               fontSize: '0.95rem',
               color: colors.text,
-              borderRadius: 14,
-              transition: 'border-color 0.3s',
+              borderRadius: 10,
+              transition: 'all 0.3s',
+              outline: 'none',
+            }}
+            onFocus={(e) => {
+              e.currentTarget.style.borderColor = colors.primary;
+              e.currentTarget.style.boxShadow = `0 0 0 3px ${colors.primary}10`;
+            }}
+            onBlur={(e) => {
+              e.currentTarget.style.borderColor = colors.border;
+              e.currentTarget.style.boxShadow = 'none';
             }}
           />
           <input
@@ -159,15 +195,24 @@ export default function Contact() {
             required
             style={{
               width: '100%',
-              padding: '16px 20px',
+              padding: '18px 24px',
               marginBottom: 20,
               border: `1px solid ${colors.border}`,
-              background: colors.cardBg,
-              fontFamily: 'inherit',
+              background: colors.background,
+              fontFamily: 'Outfit, sans-serif',
               fontSize: '0.95rem',
               color: colors.text,
-              borderRadius: 14,
-              transition: 'border-color 0.3s',
+              borderRadius: 10,
+              transition: 'all 0.3s',
+              outline: 'none',
+            }}
+            onFocus={(e) => {
+              e.currentTarget.style.borderColor = colors.primary;
+              e.currentTarget.style.boxShadow = `0 0 0 3px ${colors.primary}10`;
+            }}
+            onBlur={(e) => {
+              e.currentTarget.style.borderColor = colors.border;
+              e.currentTarget.style.boxShadow = 'none';
             }}
           />
           <textarea
@@ -177,17 +222,26 @@ export default function Contact() {
             required
             style={{
               width: '100%',
-              padding: '16px 20px',
-              marginBottom: 20,
+              padding: '18px 24px',
+              marginBottom: 24,
               border: `1px solid ${colors.border}`,
-              background: colors.cardBg,
-              fontFamily: 'inherit',
+              background: colors.background,
+              fontFamily: 'Outfit, sans-serif',
               fontSize: '0.95rem',
               color: colors.text,
-              borderRadius: 14,
+              borderRadius: 10,
               resize: 'vertical',
               minHeight: 140,
-              transition: 'border-color 0.3s',
+              transition: 'all 0.3s',
+              outline: 'none',
+            }}
+            onFocus={(e) => {
+              e.currentTarget.style.borderColor = colors.primary;
+              e.currentTarget.style.boxShadow = `0 0 0 3px ${colors.primary}10`;
+            }}
+            onBlur={(e) => {
+              e.currentTarget.style.borderColor = colors.border;
+              e.currentTarget.style.boxShadow = 'none';
             }}
           />
           <motion.button
@@ -199,28 +253,29 @@ export default function Contact() {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              gap: 12,
-              background: colors.primary,
+              gap: 10,
+              background: `linear-gradient(135deg, ${colors.primary} 0%, ${colors.primaryDark} 100%)`,
               color: '#fff',
               padding: '18px 36px',
               border: 'none',
-              borderRadius: 14,
-              fontWeight: 700,
+              borderRadius: 10,
+              fontFamily: 'Outfit, sans-serif',
+              fontWeight: 600,
               fontSize: '1rem',
-              fontFamily: 'inherit',
               cursor: 'pointer',
-              boxShadow: '0 8px 24px rgba(0, 59, 111, 0.3)',
+              boxShadow: `0 8px 24px ${colors.shadow}`,
+              letterSpacing: '0.3px',
             }}
           >
-            Verstuur Bericht
+            Verstuur bericht
             <Send size={18} />
           </motion.button>
         </motion.form>
       </div>
 
       <style>{`
-        @media (max-width: 768px) {
-          div[style*="grid-template-columns: 1fr 1fr"] {
+        @media (max-width: 900px) {
+          div[style*="grid-template-columns: 1fr 1.2fr"] {
             grid-template-columns: 1fr !important;
           }
         }

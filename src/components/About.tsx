@@ -10,48 +10,68 @@ export default function About() {
     <section
       id="over-ons"
       style={{
-        padding: '120px 40px',
-        background: colors.cardBg,
-        textAlign: 'center',
+        padding: '140px 60px',
+        background: colors.surface,
+        position: 'relative',
       }}
     >
+      {/* Subtle accent line */}
+      <div style={{
+        position: 'absolute',
+        top: 0,
+        left: '50%',
+        transform: 'translateX(-50%)',
+        width: 120,
+        height: 1,
+        background: `linear-gradient(90deg, transparent, ${colors.primary}, transparent)`,
+      }} />
+
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        style={{ maxWidth: 900, margin: '0 auto' }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.8 }}
+        style={{ maxWidth: 800, margin: '0 auto', textAlign: 'center' }}
       >
+        <motion.span
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2 }}
+          style={{
+            display: 'inline-block',
+            fontFamily: 'Outfit, sans-serif',
+            fontSize: '0.75rem',
+            fontWeight: 600,
+            letterSpacing: '3px',
+            textTransform: 'uppercase',
+            color: colors.accent,
+            marginBottom: 20,
+          }}
+        >
+          Over Ons
+        </motion.span>
+
         <h2
           style={{
-            fontFamily: 'Nunito, sans-serif',
-            fontSize: '2.5rem',
-            fontWeight: 700,
+            fontFamily: 'Cormorant Garamond, serif',
+            fontSize: '3rem',
+            fontWeight: 600,
             color: colors.text,
             marginBottom: 32,
-            position: 'relative',
-            display: 'inline-block',
+            letterSpacing: '-0.3px',
           }}
         >
           Over Texel Services
-          <div
-            style={{
-              position: 'absolute',
-              bottom: -12,
-              left: '50%',
-              transform: 'translateX(-50%)',
-              width: 60,
-              height: 2,
-              background: colors.accent,
-            }}
-          />
         </h2>
 
         <p
           style={{
+            fontFamily: 'Outfit, sans-serif',
             fontSize: '1.1rem',
-            color: colors.textMuted,
-            marginBottom: 20,
+            fontWeight: 400,
+            color: colors.textSecondary,
+            marginBottom: 24,
             lineHeight: 1.9,
           }}
         >
@@ -61,8 +81,10 @@ export default function About() {
 
         <p
           style={{
+            fontFamily: 'Outfit, sans-serif',
             fontSize: '1.1rem',
-            color: colors.textMuted,
+            fontWeight: 400,
+            color: colors.textSecondary,
             marginBottom: 20,
             lineHeight: 1.9,
           }}
@@ -71,23 +93,24 @@ export default function About() {
           Zo weet u altijd precies waar u aan toe bent.
         </p>
 
-        <motion.span
+        <motion.div
           whileHover={{ scale: 1.02 }}
           style={{
             display: 'inline-block',
-            marginTop: 40,
-            padding: '20px 40px',
-            background: colors.primary,
+            marginTop: 48,
+            padding: '20px 48px',
+            background: `linear-gradient(135deg, ${colors.primary} 0%, ${colors.primaryDark} 100%)`,
             color: '#fff',
-            fontFamily: 'Nunito, sans-serif',
-            fontSize: '1.1rem',
-            fontWeight: 700,
-            borderRadius: 50,
-            boxShadow: '0 8px 24px rgba(0, 59, 111, 0.25)',
+            fontFamily: 'Cormorant Garamond, serif',
+            fontSize: '1.3rem',
+            fontWeight: 600,
+            fontStyle: 'italic',
+            borderRadius: 8,
+            boxShadow: `0 8px 32px ${colors.shadow}`,
           }}
         >
           Kleine klussen. Groot verschil.
-        </motion.span>
+        </motion.div>
       </motion.div>
     </section>
   );

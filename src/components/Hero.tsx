@@ -12,15 +12,19 @@ export default function Hero() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.15,
         delayChildren: 0.3,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0 },
+    hidden: { opacity: 0, y: 40 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+        transition: { duration: 0.7 },
+    },
   };
 
   return (
@@ -31,37 +35,48 @@ export default function Hero() {
         alignItems: 'center',
         position: 'relative',
         overflow: 'hidden',
-        background: `linear-gradient(180deg, ${colors.background} 0%, ${colors.backgroundAlt} 100%)`,
+        background: `linear-gradient(135deg, ${colors.background} 0%, ${colors.backgroundAlt} 100%)`,
       }}
     >
-      {/* Decorative shapes */}
+      {/* Sophisticated background elements */}
       <div style={{
         position: 'absolute',
-        width: 500,
-        height: 500,
+        width: 800,
+        height: 800,
         borderRadius: '50%',
-        background: 'rgba(0, 59, 111, 0.06)',
-        top: -150,
-        right: -150,
+        background: `radial-gradient(circle, ${colors.primary}06 0%, transparent 70%)`,
+        top: -300,
+        right: -200,
       }} />
       <div style={{
         position: 'absolute',
-        width: 400,
-        height: 400,
+        width: 600,
+        height: 600,
         borderRadius: '50%',
-        background: 'rgba(0, 140, 186, 0.06)',
-        bottom: -100,
+        background: `radial-gradient(circle, ${colors.accent}05 0%, transparent 70%)`,
+        bottom: -200,
         left: -100,
       }} />
+      
+      {/* Subtle pattern overlay */}
+      <div 
+        style={{
+          position: 'absolute',
+          inset: 0,
+          opacity: 0.4,
+          backgroundImage: `radial-gradient(${colors.primary}08 1px, transparent 1px)`,
+          backgroundSize: '32px 32px',
+        }}
+      />
 
       <div
         style={{
-          maxWidth: 1200,
+          maxWidth: 1400,
           margin: '0 auto',
-          padding: '120px 40px',
+          padding: '140px 60px',
           display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
-          gap: 80,
+          gridTemplateColumns: '1.1fr 0.9fr',
+          gap: 100,
           alignItems: 'center',
           width: '100%',
           position: 'relative',
@@ -73,61 +88,92 @@ export default function Hero() {
           initial="hidden"
           animate="visible"
         >
+          {/* Tagline */}
+          <motion.span
+            variants={itemVariants}
+            style={{
+              display: 'inline-block',
+              fontFamily: 'Outfit, sans-serif',
+              fontSize: '0.75rem',
+              fontWeight: 600,
+              letterSpacing: '3px',
+              textTransform: 'uppercase',
+              color: colors.accent,
+              marginBottom: 24,
+              padding: '8px 16px',
+              background: `${colors.accent}10`,
+              borderRadius: 6,
+            }}
+          >
+            Vakmanschap & Betrouwbaarheid
+          </motion.span>
+
+          {/* Main Heading */}
           <motion.h1
             variants={itemVariants}
             style={{
-              fontFamily: 'Nunito, sans-serif',
-              fontSize: '3.5rem',
-              fontWeight: 700,
+              fontFamily: 'Cormorant Garamond, serif',
+              fontSize: '4.5rem',
+              fontWeight: 600,
               color: colors.text,
               lineHeight: 1.1,
-              marginBottom: 24,
+              marginBottom: 28,
+              letterSpacing: '-0.5px',
             }}
           >
-            Texel Services
+            Texel <span style={{ color: colors.primary }}>Services</span>
           </motion.h1>
 
+          {/* Subtitle */}
           <motion.p
             variants={itemVariants}
             style={{
-              fontSize: '1.25rem',
-              color: colors.textMuted,
-              marginBottom: 32,
-              maxWidth: 480,
+              fontFamily: 'Outfit, sans-serif',
+              fontSize: '1.15rem',
+              fontWeight: 400,
+              color: colors.textSecondary,
+              marginBottom: 40,
+              maxWidth: 520,
               lineHeight: 1.8,
+              letterSpacing: '0.2px',
             }}
           >
-            Kleine klussen die het verschil maken. Vakmanschap, netheid en betrouwbaarheid in elk project.
+            Kleine klussen die het verschil maken. Wij leveren vakmanschap, netheid en betrouwbaarheid bij elk project — groot of klein.
           </motion.p>
 
-          <motion.a
-            variants={itemVariants}
-            href="#contact"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: 12,
-              background: colors.primary,
-              color: '#fff',
-              padding: '18px 36px',
-              borderRadius: 50,
-              fontWeight: 600,
-              fontSize: '1rem',
-              textDecoration: 'none',
-              boxShadow: '0 8px 24px rgba(0, 59, 111, 0.3)',
-              transition: 'all 0.3s',
-            }}
-          >
-            Vraag een offerte aan
-            <ArrowRight size={20} />
-          </motion.a>
+          {/* CTA */}
+          <motion.div variants={itemVariants} style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
+            <motion.a
+              href="#contact"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.98 }}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: 10,
+                background: `linear-gradient(135deg, ${colors.primary} 0%, ${colors.primaryDark} 100%)`,
+                color: '#fff',
+                padding: '16px 32px',
+                borderRadius: 10,
+                fontFamily: 'Outfit, sans-serif',
+                fontWeight: 600,
+                fontSize: '0.95rem',
+                textDecoration: 'none',
+                boxShadow: `0 8px 32px ${colors.shadow}`,
+                letterSpacing: '0.3px',
+              }}
+            >
+              Vraag een offerte aan
+              <ArrowRight size={18} />
+            </motion.a>
+          </motion.div>
         </motion.div>
 
         {/* Hero Image */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
+          initial={{ opacity: 0, x: 60 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, delay: 0.4 }}
           style={{
             display: 'flex',
             justifyContent: 'center',
@@ -136,13 +182,10 @@ export default function Hero() {
         >
           <div
             style={{
-              background: colors.cardBg,
-              borderRadius: 32,
-              padding: 16,
-              boxShadow: '0 32px 64px rgba(0, 59, 111, 0.15), 0 16px 32px rgba(0, 59, 111, 0.08)',
-              textAlign: 'center',
               position: 'relative',
+              borderRadius: 24,
               overflow: 'hidden',
+              boxShadow: `0 32px 80px ${colors.shadowHover}, 0 16px 40px ${colors.shadow}`,
             }}
           >
             <div style={{
@@ -150,7 +193,7 @@ export default function Hero() {
               top: 0,
               left: 0,
               right: 0,
-              height: 6,
+              height: 4,
               background: `linear-gradient(90deg, ${colors.primary}, ${colors.accent})`,
             }} />
             <img 
@@ -158,20 +201,12 @@ export default function Hero() {
               alt="Texel Services" 
               style={{ 
                 width: '100%', 
-                maxWidth: 400,
+                maxWidth: 480,
                 height: 'auto', 
                 borderRadius: 20,
                 display: 'block',
               }} 
             />
-            <p style={{ 
-              fontWeight: 700, 
-              fontSize: '1.1rem', 
-              color: colors.text,
-              marginTop: 16,
-            }}>
-              Kleine klussen. Groot verschil.
-            </p>
           </div>
         </motion.div>
       </div>
