@@ -3,15 +3,42 @@
 import { useTheme } from '@/context/ThemeContext';
 import { motion } from 'framer-motion';
 import { Phone, Mail, Globe, Send } from 'lucide-react';
+import { useState } from 'react';
 
 export default function Contact() {
   const { colors } = useTheme();
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
 
   const contactInfo = [
     { icon: Phone, label: '06 4370 8128', href: 'tel:0643708128' },
     { icon: Mail, label: 'info@texelservices.nl', href: 'mailto:info@texelservices.nl' },
     { icon: Globe, label: 'www.texelservices.nl', href: '#' },
   ];
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setStatus('submitting');
+
+    try {
+      const form = event.currentTarget;
+      const data = new FormData(form);
+
+      const response = await fetch('https://formspree.io/f/xnjbzvrp', {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: data,
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        form.reset();
+      } else {
+        setStatus('error');
+      }
+    } catch {
+      setStatus('error');
+    }
+  };
 
   return (
     <section
@@ -139,8 +166,7 @@ export default function Contact() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          action="https://formspree.io/f/xnjbzvrp"
-          method="POST"
+          onSubmit={handleSubmit}
           style={{
             background: colors.surface,
             padding: 48,
@@ -267,9 +293,33 @@ export default function Contact() {
               letterSpacing: '0.3px',
             }}
           >
-            Verstuur bericht
+            {status === 'submitting' ? 'Versturen...' : 'Verstuur bericht'}
             <Send size={18} />
           </motion.button>
+          {status === 'success' && (
+            <p
+              style={{
+                marginTop: 16,
+                fontFamily: "'Source Sans 3', sans-serif",
+                fontSize: '0.9rem',
+                color: colors.primaryLight,
+              }}
+            >
+              Bedankt! Uw bericht is verzonden. We nemen zo snel mogelijk contact met u op.
+            </p>
+          )}
+          {status === 'error' && (
+            <p
+              style={{
+                marginTop: 16,
+                fontFamily: "'Source Sans 3', sans-serif",
+                fontSize: '0.9rem',
+                color: '#ffdddd',
+              }}
+            >
+              Er ging iets mis bij het versturen. Probeer het later opnieuw of neem direct contact op via telefoon of e-mail.
+            </p>
+          )}
         </motion.form>
       </div>
     </section>
