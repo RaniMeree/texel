@@ -82,9 +82,9 @@ export default function Services() {
         </span>
         <h2
           style={{
-            fontFamily: 'Cormorant Garamond, serif',
+            fontFamily: 'Outfit, sans-serif',
             fontSize: '3rem',
-            fontWeight: 600,
+            fontWeight: 700,
             color: colors.text,
           }}
         >
@@ -156,9 +156,9 @@ export default function Services() {
 
             <h3
               style={{
-                fontFamily: 'Cormorant Garamond, serif',
+                fontFamily: 'Outfit, sans-serif',
                 fontSize: '1.5rem',
-                fontWeight: 600,
+                fontWeight: 700,
                 color: colors.text,
                 marginBottom: 12,
               }}

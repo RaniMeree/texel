@@ -58,9 +58,9 @@ export default function Contact() {
           
           <h2
             style={{
-              fontFamily: 'Cormorant Garamond, serif',
+              fontFamily: 'Outfit, sans-serif',
               fontSize: '2.75rem',
-              fontWeight: 600,
+              fontWeight: 700,
               color: colors.text,
               marginBottom: 20,
               letterSpacing: '-0.3px',
@@ -151,9 +151,9 @@ export default function Contact() {
         >
           <h3
             style={{
-              fontFamily: 'Cormorant Garamond, serif',
+              fontFamily: 'Outfit, sans-serif',
               fontSize: '1.6rem',
-              fontWeight: 600,
+              fontWeight: 700,
               color: colors.text,
               marginBottom: 32,
             }}

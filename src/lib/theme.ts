@@ -16,6 +16,6 @@ export const colors = {
 };
 
 export const fonts = {
-  heading: 'Cormorant Garamond',
+  heading: 'Outfit',
   body: 'Outfit',
 };

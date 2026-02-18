@@ -54,9 +54,9 @@ export default function About() {
 
         <h2
           style={{
-            fontFamily: 'Cormorant Garamond, serif',
+            fontFamily: 'Outfit, sans-serif',
             fontSize: '3rem',
-            fontWeight: 600,
+            fontWeight: 700,
             color: colors.text,
             marginBottom: 32,
             letterSpacing: '-0.3px',
@@ -101,7 +101,7 @@ export default function About() {
             padding: '20px 48px',
             background: `linear-gradient(135deg, ${colors.primary} 0%, ${colors.primaryDark} 100%)`,
             color: '#fff',
-            fontFamily: 'Cormorant Garamond, serif',
+            fontFamily: 'Outfit, sans-serif',
             fontSize: '1.3rem',
             fontWeight: 600,
             fontStyle: 'italic',

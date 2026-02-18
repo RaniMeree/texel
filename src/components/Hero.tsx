@@ -112,9 +112,9 @@ export default function Hero() {
           <motion.h1
             variants={itemVariants}
             style={{
-              fontFamily: 'Cormorant Garamond, serif',
+              fontFamily: 'Outfit, sans-serif',
               fontSize: '4.5rem',
-              fontWeight: 600,
+              fontWeight: 700,
               color: colors.text,
               lineHeight: 1.1,
               marginBottom: 28,

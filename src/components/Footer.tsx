@@ -52,9 +52,9 @@ export default function Footer() {
             </div>
             <span
               style={{
-                fontFamily: 'Cormorant Garamond, serif',
+                fontFamily: 'Outfit, sans-serif',
                 fontSize: '1.5rem',
-                fontWeight: 600,
+                fontWeight: 700,
                 letterSpacing: '0.5px',
               }}
             >
