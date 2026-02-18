@@ -97,7 +97,7 @@ export default function Services() {
           maxWidth: 1200,
           margin: '0 auto',
           display: 'grid',
-          gridTemplateColumns: 'repeat(3, 1fr)',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
           gap: 32,
         }}
       >
@@ -179,22 +179,6 @@ export default function Services() {
           </motion.div>
         ))}
       </div>
-
-      <style>{`
-        .service-accent {
-          opacity: 1;
-        }
-        @media (max-width: 1024px) {
-          div[style*="grid-template-columns: repeat(3"] {
-            grid-template-columns: repeat(2, 1fr) !important;
-          }
-        }
-        @media (max-width: 640px) {
-          div[style*="grid-template-columns: repeat(3"] {
-            grid-template-columns: 1fr !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }

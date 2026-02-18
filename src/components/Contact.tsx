@@ -26,7 +26,7 @@ export default function Contact() {
           maxWidth: 1100,
           margin: '0 auto',
           display: 'grid',
-          gridTemplateColumns: '1fr 1.2fr',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
           gap: 80,
           alignItems: 'start',
         }}
@@ -272,14 +272,6 @@ export default function Contact() {
           </motion.button>
         </motion.form>
       </div>
-
-      <style>{`
-        @media (max-width: 900px) {
-          div[style*="grid-template-columns: 1fr 1.2fr"] {
-            grid-template-columns: 1fr !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }
