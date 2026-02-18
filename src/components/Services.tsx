@@ -66,7 +66,7 @@ export default function Services() {
         <span
           style={{
             display: 'inline-block',
-            fontFamily: 'Outfit, sans-serif',
+            fontFamily: "'Source Sans 3', sans-serif",
             fontSize: '0.75rem',
             fontWeight: 600,
             letterSpacing: '3px',
@@ -82,7 +82,7 @@ export default function Services() {
         </span>
         <h2
           style={{
-            fontFamily: 'Outfit, sans-serif',
+            fontFamily: "'Source Sans 3', sans-serif",
             fontSize: '3rem',
             fontWeight: 700,
             color: colors.text,
@@ -156,7 +156,7 @@ export default function Services() {
 
             <h3
               style={{
-                fontFamily: 'Outfit, sans-serif',
+                fontFamily: "'Source Sans 3', sans-serif",
                 fontSize: '1.5rem',
                 fontWeight: 700,
                 color: colors.text,
@@ -168,7 +168,7 @@ export default function Services() {
 
             <p
               style={{
-                fontFamily: 'Outfit, sans-serif',
+                fontFamily: "'Source Sans 3', sans-serif",
                 color: colors.textSecondary,
                 fontSize: '0.95rem',
                 lineHeight: 1.7,

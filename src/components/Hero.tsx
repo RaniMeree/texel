@@ -93,7 +93,7 @@ export default function Hero() {
             variants={itemVariants}
             style={{
               display: 'inline-block',
-              fontFamily: 'Outfit, sans-serif',
+              fontFamily: "'Source Sans 3', sans-serif",
               fontSize: '0.75rem',
               fontWeight: 600,
               letterSpacing: '3px',
@@ -112,7 +112,7 @@ export default function Hero() {
           <motion.h1
             variants={itemVariants}
             style={{
-              fontFamily: 'Outfit, sans-serif',
+              fontFamily: "'Source Sans 3', sans-serif",
               fontSize: '4.5rem',
               fontWeight: 700,
               color: colors.text,
@@ -128,7 +128,7 @@ export default function Hero() {
           <motion.p
             variants={itemVariants}
             style={{
-              fontFamily: 'Outfit, sans-serif',
+              fontFamily: "'Source Sans 3', sans-serif",
               fontSize: '1.15rem',
               fontWeight: 400,
               color: colors.textSecondary,
@@ -155,7 +155,7 @@ export default function Hero() {
                 color: '#fff',
                 padding: '16px 32px',
                 borderRadius: 10,
-                fontFamily: 'Outfit, sans-serif',
+                fontFamily: "'Source Sans 3', sans-serif",
                 fontWeight: 600,
                 fontSize: '0.95rem',
                 textDecoration: 'none',

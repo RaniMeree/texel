@@ -40,7 +40,7 @@ export default function About() {
           transition={{ delay: 0.2 }}
           style={{
             display: 'inline-block',
-            fontFamily: 'Outfit, sans-serif',
+            fontFamily: "'Source Sans 3', sans-serif",
             fontSize: '0.75rem',
             fontWeight: 600,
             letterSpacing: '3px',
@@ -54,7 +54,7 @@ export default function About() {
 
         <h2
           style={{
-            fontFamily: 'Outfit, sans-serif',
+            fontFamily: "'Source Sans 3', sans-serif",
             fontSize: '3rem',
             fontWeight: 700,
             color: colors.text,
@@ -67,7 +67,7 @@ export default function About() {
 
         <p
           style={{
-            fontFamily: 'Outfit, sans-serif',
+            fontFamily: "'Source Sans 3', sans-serif",
             fontSize: '1.1rem',
             fontWeight: 400,
             color: colors.textSecondary,
@@ -81,7 +81,7 @@ export default function About() {
 
         <p
           style={{
-            fontFamily: 'Outfit, sans-serif',
+            fontFamily: "'Source Sans 3', sans-serif",
             fontSize: '1.1rem',
             fontWeight: 400,
             color: colors.textSecondary,
@@ -101,7 +101,7 @@ export default function About() {
             padding: '20px 48px',
             background: `linear-gradient(135deg, ${colors.primary} 0%, ${colors.primaryDark} 100%)`,
             color: '#fff',
-            fontFamily: 'Outfit, sans-serif',
+            fontFamily: "'Source Sans 3', sans-serif",
             fontSize: '1.3rem',
             fontWeight: 600,
             fontStyle: 'italic',

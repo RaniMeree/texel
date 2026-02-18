@@ -41,7 +41,7 @@ export default function Contact() {
           <span
             style={{
               display: 'inline-block',
-              fontFamily: 'Outfit, sans-serif',
+              fontFamily: "'Source Sans 3', sans-serif",
               fontSize: '0.75rem',
               fontWeight: 600,
               letterSpacing: '3px',
@@ -58,7 +58,7 @@ export default function Contact() {
           
           <h2
             style={{
-              fontFamily: 'Outfit, sans-serif',
+              fontFamily: "'Source Sans 3', sans-serif",
               fontSize: '2.75rem',
               fontWeight: 700,
               color: colors.text,
@@ -71,7 +71,7 @@ export default function Contact() {
           
           <p
             style={{
-              fontFamily: 'Outfit, sans-serif',
+              fontFamily: "'Source Sans 3', sans-serif",
               color: colors.textSecondary,
               marginBottom: 40,
               fontSize: '1.05rem',
@@ -121,7 +121,7 @@ export default function Contact() {
               </div>
               <span
                 style={{
-                  fontFamily: 'Outfit, sans-serif',
+                  fontFamily: "'Source Sans 3', sans-serif",
                   color: colors.text,
                   fontWeight: 500,
                   fontSize: '1rem',
@@ -151,7 +151,7 @@ export default function Contact() {
         >
           <h3
             style={{
-              fontFamily: 'Outfit, sans-serif',
+              fontFamily: "'Source Sans 3', sans-serif",
               fontSize: '1.6rem',
               fontWeight: 700,
               color: colors.text,
@@ -172,7 +172,7 @@ export default function Contact() {
               marginBottom: 20,
               border: `1px solid ${colors.border}`,
               background: colors.background,
-              fontFamily: 'Outfit, sans-serif',
+              fontFamily: "'Source Sans 3', sans-serif",
               fontSize: '0.95rem',
               color: colors.text,
               borderRadius: 10,
@@ -199,7 +199,7 @@ export default function Contact() {
               marginBottom: 20,
               border: `1px solid ${colors.border}`,
               background: colors.background,
-              fontFamily: 'Outfit, sans-serif',
+              fontFamily: "'Source Sans 3', sans-serif",
               fontSize: '0.95rem',
               color: colors.text,
               borderRadius: 10,
@@ -226,7 +226,7 @@ export default function Contact() {
               marginBottom: 24,
               border: `1px solid ${colors.border}`,
               background: colors.background,
-              fontFamily: 'Outfit, sans-serif',
+              fontFamily: "'Source Sans 3', sans-serif",
               fontSize: '0.95rem',
               color: colors.text,
               borderRadius: 10,
@@ -259,7 +259,7 @@ export default function Contact() {
               padding: '18px 36px',
               border: 'none',
               borderRadius: 10,
-              fontFamily: 'Outfit, sans-serif',
+              fontFamily: "'Source Sans 3', sans-serif",
               fontWeight: 600,
               fontSize: '1rem',
               cursor: 'pointer',

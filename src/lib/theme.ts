@@ -16,6 +16,6 @@ export const colors = {
 };
 
 export const fonts = {
-  heading: 'Outfit',
-  body: 'Outfit',
+  heading: 'Source Sans 3',
+  body: 'Source Sans 3',
 };

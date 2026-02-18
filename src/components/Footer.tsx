@@ -52,7 +52,7 @@ export default function Footer() {
             </div>
             <span
               style={{
-                fontFamily: 'Outfit, sans-serif',
+                fontFamily: "'Source Sans 3', sans-serif",
                 fontSize: '1.5rem',
                 fontWeight: 700,
                 letterSpacing: '0.5px',
@@ -62,7 +62,7 @@ export default function Footer() {
             </span>
           </div>
           <p style={{
-            fontFamily: 'Outfit, sans-serif',
+            fontFamily: "'Source Sans 3', sans-serif",
             fontSize: '0.95rem',
             lineHeight: 1.7,
             opacity: 0.8,
@@ -75,7 +75,7 @@ export default function Footer() {
         {/* Quick Links */}
         <div>
           <h4 style={{
-            fontFamily: 'Outfit, sans-serif',
+            fontFamily: "'Source Sans 3', sans-serif",
             fontSize: '0.8rem',
             fontWeight: 600,
             letterSpacing: '2px',
@@ -91,7 +91,7 @@ export default function Footer() {
               href={`#${link === 'Over Ons' ? 'over-ons' : link === 'Diensten' ? 'diensten' : 'contact'}`}
               style={{
                 display: 'block',
-                fontFamily: 'Outfit, sans-serif',
+                fontFamily: "'Source Sans 3', sans-serif",
                 fontSize: '0.95rem',
                 color: '#fff',
                 textDecoration: 'none',
@@ -110,7 +110,7 @@ export default function Footer() {
         {/* Contact */}
         <div>
           <h4 style={{
-            fontFamily: 'Outfit, sans-serif',
+            fontFamily: "'Source Sans 3', sans-serif",
             fontSize: '0.8rem',
             fontWeight: 600,
             letterSpacing: '2px',
@@ -121,7 +121,7 @@ export default function Footer() {
             Contact
           </h4>
           <p style={{
-            fontFamily: 'Outfit, sans-serif',
+            fontFamily: "'Source Sans 3', sans-serif",
             fontSize: '0.95rem',
             opacity: 0.85,
             marginBottom: 8,
@@ -129,7 +129,7 @@ export default function Footer() {
             06 4370 8128
           </p>
           <p style={{
-            fontFamily: 'Outfit, sans-serif',
+            fontFamily: "'Source Sans 3', sans-serif",
             fontSize: '0.95rem',
             opacity: 0.85,
             marginBottom: 24,
@@ -189,14 +189,14 @@ export default function Footer() {
         gap: 16,
       }}>
         <p style={{ 
-          fontFamily: 'Outfit, sans-serif', 
+          fontFamily: "'Source Sans 3', sans-serif", 
           fontSize: '0.85rem', 
           opacity: 0.5 
         }}>
           &copy; 2024 Texel Services. Alle rechten voorbehouden.
         </p>
         <p style={{ 
-          fontFamily: 'Outfit, sans-serif', 
+          fontFamily: "'Source Sans 3', sans-serif", 
           fontSize: '0.8rem', 
           opacity: 0.4 
         }}>

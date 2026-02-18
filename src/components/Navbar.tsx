@@ -55,7 +55,7 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 style={{
-                  fontFamily: 'Outfit, sans-serif',
+                  fontFamily: "'Source Sans 3', sans-serif",
                   fontSize: '0.85rem',
                   fontWeight: 500,
                   color: colors.textSecondary,
@@ -83,7 +83,7 @@ export default function Navbar() {
           <a
             href="#contact"
             style={{
-              fontFamily: 'Outfit, sans-serif',
+              fontFamily: "'Source Sans 3', sans-serif",
               fontSize: '0.85rem',
               fontWeight: 600,
               color: '#fff',
@@ -149,7 +149,7 @@ export default function Navbar() {
                   color: colors.text,
                   textDecoration: 'none',
                   borderBottom: `1px solid ${colors.border}`,
-                  fontFamily: 'Outfit, sans-serif',
+                  fontFamily: "'Source Sans 3', sans-serif",
                 }}
               >
                 {link.label}
