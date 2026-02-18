@@ -139,7 +139,7 @@ export default function Contact() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          action="https://formspree.io/f/YOUR_FORM_ID"
+          action="https://formspree.io/f/xnjbzvrp"
           method="POST"
           style={{
             background: colors.surface,
