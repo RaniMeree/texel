@@ -35,14 +35,9 @@ export default function Navbar() {
         left: 0,
         right: 0,
         zIndex: 1000,
-        background: '#fff',
+        background: `linear-gradient(180deg, ${colors.primaryDark} 0%, ${colors.primary} 100%)`,
         backdropFilter: 'blur(20px)',
-        borderBottom: scrolled 
-          ? `1px solid ${colors.border}` 
-          : '1px solid rgba(0, 140, 186, 0.1)',
-        boxShadow: scrolled 
-          ? `0 4px 24px ${colors.shadow}` 
-          : 'none',
+        borderBottom: '1px solid rgba(255, 255, 255, 0.15)',
         color: '#fff',
         transition: 'all 0.3s ease',
       }}
@@ -65,7 +60,7 @@ export default function Navbar() {
           <img 
             src="/logo2.png" 
             alt="Texel Services" 
-            style={{ height: 64, width: 'auto' }} 
+            style={{ height: 64, width: 'auto', filter: 'brightness(0) invert(1)' }} 
           />
         </motion.div>
 
@@ -82,7 +77,7 @@ export default function Navbar() {
                   fontFamily: "'Source Sans 3', sans-serif",
                   fontSize: '0.85rem',
                   fontWeight: 500,
-                  color: colors.textSecondary,
+                  color: '#fff',
                   textDecoration: 'none',
                   padding: '10px 24px',
                   borderRadius: 8,
@@ -95,7 +90,7 @@ export default function Navbar() {
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.background = 'transparent';
-                  e.currentTarget.style.color = colors.textSecondary;
+                  e.currentTarget.style.color = '#fff';
                 }}
               >
                 {link.label}
@@ -135,7 +130,7 @@ export default function Navbar() {
             background: 'none',
             border: 'none',
             cursor: 'pointer',
-            color: colors.text,
+            color: '#fff',
             padding: 8,
           }}
           className="mobile-menu-btn"
