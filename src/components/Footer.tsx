@@ -299,15 +299,5 @@ export default function Footer() {
     </footer>
   );
 }
-          div[style*="display: flex"]:has(div[style*="width: 40px"]) {
-            justify-content: center !important;
-          }
-          footer > div:first-of-type {
-            flex-direction: column;
-            text-align: center;
-          }
-        }
-      `}</style>
-    </footer>
-  );
-}
+
+export default Footer;
