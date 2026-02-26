@@ -36,12 +36,12 @@ export default function Navbar() {
         right: 0,
         zIndex: 1000,
         background: scrolled 
-          ? 'rgba(240, 244, 248, 0.95)' 
-          : 'rgba(250, 252, 254, 0.85)',
+          ? 'rgba(10, 20, 34, 0.95)' 
+          : 'rgba(10, 20, 34, 0.85)',
         backdropFilter: 'blur(20px)',
         borderBottom: scrolled 
           ? `1px solid ${colors.border}` 
-          : '1px solid transparent',
+          : '1px solid rgba(0, 140, 186, 0.1)',
         boxShadow: scrolled 
           ? `0 4px 24px ${colors.shadow}` 
           : 'none',
