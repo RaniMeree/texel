@@ -35,9 +35,7 @@ export default function Navbar() {
         left: 0,
         right: 0,
         zIndex: 1000,
-        background: scrolled 
-          ? `linear-gradient(180deg, ${colors.primaryDark} 0%, ${colors.primary} 100%)`
-          : `linear-gradient(180deg, ${colors.primaryDark} 0%, ${colors.primary} 100%)`,
+        background: '#fff',
         backdropFilter: 'blur(20px)',
         borderBottom: scrolled 
           ? `1px solid ${colors.border}` 
@@ -65,7 +63,7 @@ export default function Navbar() {
           style={{ display: 'flex', alignItems: 'center', gap: 12 }}
         >
           <img 
-            src="/logo.png" 
+            src="/logo2.png" 
             alt="Texel Services" 
             style={{ height: 64, width: 'auto' }} 
           />
@@ -190,7 +188,7 @@ export default function Navbar() {
                 marginTop: 16,
                 padding: '14px',
                 background: `linear-gradient(135deg, ${colors.primary} 0%, ${colors.primaryDark} 100%)`,
-                color: '#fff',
+color: colors.text,
                 textAlign: 'center',
                 borderRadius: 8,
                 textDecoration: 'none',
