@@ -19,8 +19,31 @@ export default function Contact() {
       style={{
         padding: '140px 60px',
         background: colors.surface,
+        position: 'relative',
+        overflow: 'hidden',
       }}
     >
+      {/* Background decoration */}
+      <motion.div
+        animate={{
+          opacity: [0.03, 0.06, 0.03],
+        }}
+        transition={{
+          duration: 6,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+        style={{
+          position: 'absolute',
+          width: 700,
+          height: 700,
+          borderRadius: '50%',
+          background: `radial-gradient(circle, ${colors.accent} 0%, transparent 70%)`,
+          bottom: -300,
+          left: -200,
+        }}
+      />
+
       <div
         style={{
           maxWidth: 1100,
@@ -29,6 +52,8 @@ export default function Contact() {
           gridTemplateColumns: '1fr 1.2fr',
           gap: 80,
           alignItems: 'start',
+          position: 'relative',
+          zIndex: 1,
         }}
       >
         {/* Contact Info */}
@@ -38,7 +63,10 @@ export default function Contact() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <span
+          <motion.span
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             style={{
               display: 'inline-block',
               fontFamily: "'Source Sans 3', sans-serif",
@@ -49,12 +77,13 @@ export default function Contact() {
               color: colors.accent,
               marginBottom: 16,
               padding: '8px 16px',
-              background: `${colors.accent}10`,
+              background: `${colors.accent}12`,
               borderRadius: 6,
+              border: `1px solid ${colors.accent}20`,
             }}
           >
             Contact
-          </span>
+          </motion.span>
           
           <h2
             style={{
@@ -90,7 +119,7 @@ export default function Contact() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ x: 8 }}
+              whileHover={{ x: 8, boxShadow: `0 8px 24px ${colors.shadowHover}` }}
               style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -98,12 +127,14 @@ export default function Contact() {
                 marginBottom: 28,
                 textDecoration: 'none',
                 padding: '16px 20px',
-                background: colors.background,
+                background: colors.backgroundAlt,
                 borderRadius: 12,
                 transition: 'all 0.3s ease',
+                border: `1px solid ${colors.border}`,
               }}
             >
-              <div
+              <motion.div
+                whileHover={{ scale: 1.1, rotate: 5 }}
                 style={{
                   width: 48,
                   height: 48,
@@ -118,7 +149,7 @@ export default function Contact() {
                 }}
               >
                 <item.icon size={20} />
-              </div>
+              </motion.div>
               <span
                 style={{
                   fontFamily: "'Source Sans 3', sans-serif",
@@ -147,8 +178,33 @@ export default function Contact() {
             boxShadow: `0 24px 64px ${colors.shadowHover}, 0 12px 24px ${colors.shadow}`,
             borderRadius: 24,
             border: `1px solid ${colors.border}`,
+            position: 'relative',
           }}
         >
+          {/* Corner accents */}
+          <div style={{
+            position: 'absolute',
+            top: 16,
+            left: 16,
+            width: 30,
+            height: 30,
+            borderTop: `2px solid ${colors.accent}`,
+            borderLeft: `2px solid ${colors.accent}`,
+            borderTopLeftRadius: 8,
+            opacity: 0.5,
+          }} />
+          <div style={{
+            position: 'absolute',
+            bottom: 16,
+            right: 16,
+            width: 30,
+            height: 30,
+            borderBottom: `2px solid ${colors.primary}`,
+            borderRight: `2px solid ${colors.primary}`,
+            borderBottomRightRadius: 8,
+            opacity: 0.5,
+          }} />
+
           <h3
             style={{
               fontFamily: "'Source Sans 3', sans-serif",
@@ -161,7 +217,8 @@ export default function Contact() {
             Stuur ons een bericht
           </h3>
           
-          <input
+          <motion.input
+            whileFocus={{ scale: 1.01 }}
             type="text"
             name="name"
             placeholder="Uw naam"
@@ -171,7 +228,7 @@ export default function Contact() {
               padding: '18px 24px',
               marginBottom: 20,
               border: `1px solid ${colors.border}`,
-              background: colors.background,
+              background: colors.backgroundAlt,
               fontFamily: "'Source Sans 3', sans-serif",
               fontSize: '0.95rem',
               color: colors.text,
@@ -188,7 +245,8 @@ export default function Contact() {
               e.currentTarget.style.boxShadow = 'none';
             }}
           />
-          <input
+          <motion.input
+            whileFocus={{ scale: 1.01 }}
             type="email"
             name="email"
             placeholder="Uw e-mailadres"
@@ -198,7 +256,7 @@ export default function Contact() {
               padding: '18px 24px',
               marginBottom: 20,
               border: `1px solid ${colors.border}`,
-              background: colors.background,
+              background: colors.backgroundAlt,
               fontFamily: "'Source Sans 3', sans-serif",
               fontSize: '0.95rem',
               color: colors.text,
@@ -215,7 +273,8 @@ export default function Contact() {
               e.currentTarget.style.boxShadow = 'none';
             }}
           />
-          <textarea
+          <motion.textarea
+            whileFocus={{ scale: 1.01 }}
             name="message"
             rows={5}
             placeholder="Beschrijf uw klus of vraag..."
@@ -225,7 +284,7 @@ export default function Contact() {
               padding: '18px 24px',
               marginBottom: 24,
               border: `1px solid ${colors.border}`,
-              background: colors.background,
+              background: colors.backgroundAlt,
               fontFamily: "'Source Sans 3', sans-serif",
               fontSize: '0.95rem',
               color: colors.text,
@@ -246,7 +305,7 @@ export default function Contact() {
           />
           <motion.button
             type="submit"
-            whileHover={{ scale: 1.02 }}
+            whileHover={{ scale: 1.02, boxShadow: `0 12px 32px ${colors.shadowHover}` }}
             whileTap={{ scale: 0.98 }}
             style={{
               width: '100%',

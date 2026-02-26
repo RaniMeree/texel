@@ -13,9 +13,51 @@ export default function About() {
         padding: '140px 60px',
         background: colors.surface,
         position: 'relative',
+        overflow: 'hidden',
       }}
     >
-      {/* Subtle accent line */}
+      {/* Background decoration */}
+      <motion.div
+        animate={{
+          opacity: [0.03, 0.06, 0.03],
+        }}
+        transition={{
+          duration: 5,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+        style={{
+          position: 'absolute',
+          width: 600,
+          height: 600,
+          borderRadius: '50%',
+          background: `radial-gradient(circle, ${colors.primary} 0%, transparent 70%)`,
+          top: -200,
+          left: -200,
+        }}
+      />
+      <motion.div
+        animate={{
+          opacity: [0.02, 0.05, 0.02],
+        }}
+        transition={{
+          duration: 7,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 2
+        }}
+        style={{
+          position: 'absolute',
+          width: 500,
+          height: 500,
+          borderRadius: '50%',
+          background: `radial-gradient(circle, ${colors.accent} 0%, transparent 70%)`,
+          bottom: -150,
+          right: -150,
+        }}
+      />
+
+      {/* Subtle accent line with glow */}
       <div style={{
         position: 'absolute',
         top: 0,
@@ -31,7 +73,7 @@ export default function About() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.8 }}
-        style={{ maxWidth: 800, margin: '0 auto', textAlign: 'center' }}
+        style={{ maxWidth: 800, margin: '0 auto', textAlign: 'center', position: 'relative', zIndex: 1 }}
       >
         <motion.span
           initial={{ opacity: 0, y: 20 }}
@@ -47,6 +89,10 @@ export default function About() {
             textTransform: 'uppercase',
             color: colors.accent,
             marginBottom: 20,
+            padding: '8px 16px',
+            background: `${colors.accent}12`,
+            borderRadius: 6,
+            border: `1px solid ${colors.accent}20`,
           }}
         >
           Over Ons
@@ -94,7 +140,8 @@ export default function About() {
         </p>
 
         <motion.div
-          whileHover={{ scale: 1.02 }}
+          whileHover={{ scale: 1.02, boxShadow: `0 12px 40px ${colors.shadowHover}` }}
+          whileTap={{ scale: 0.98 }}
           style={{
             display: 'inline-block',
             marginTop: 48,
@@ -112,6 +159,37 @@ export default function About() {
           Kleine klussen. Groot verschil.
         </motion.div>
       </motion.div>
+
+      {/* Bottom decorative dots */}
+      <div style={{
+        position: 'absolute',
+        bottom: 40,
+        left: '50%',
+        transform: 'translateX(-50%)',
+        display: 'flex',
+        gap: 12,
+      }}>
+        {[0, 1, 2].map((i) => (
+          <motion.div
+            key={i}
+            animate={{
+              scale: [1, 1.3, 1],
+              opacity: [0.3, 0.6, 0.3],
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              delay: i * 0.3,
+            }}
+            style={{
+              width: 8,
+              height: 8,
+              borderRadius: '50%',
+              background: colors.accent,
+            }}
+          />
+        ))}
+      </div>
     </section>
   );
 }

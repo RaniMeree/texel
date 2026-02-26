@@ -54,16 +54,42 @@ export default function Services() {
         padding: '140px 60px',
         background: colors.backgroundAlt,
         position: 'relative',
+        overflow: 'hidden',
       }}
     >
+      {/* Background decoration */}
+      <motion.div
+        animate={{
+          scale: [1, 1.1, 1],
+          opacity: [0.04, 0.07, 0.04],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+        style={{
+          position: 'absolute',
+          width: 800,
+          height: 800,
+          borderRadius: '50%',
+          background: `radial-gradient(circle, ${colors.primary} 0%, transparent 70%)`,
+          top: -300,
+          right: -300,
+        }}
+      />
+
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        style={{ textAlign: 'center', marginBottom: 64 }}
+        style={{ textAlign: 'center', marginBottom: 64, position: 'relative', zIndex: 1 }}
       >
-        <span
+        <motion.span
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
           style={{
             display: 'inline-block',
             fontFamily: "'Source Sans 3', sans-serif",
@@ -74,12 +100,13 @@ export default function Services() {
             color: colors.accent,
             marginBottom: 16,
             padding: '8px 16px',
-            background: `${colors.accent}10`,
+            background: `${colors.accent}12`,
             borderRadius: 6,
+            border: `1px solid ${colors.accent}20`,
           }}
         >
           Onze Diensten
-        </span>
+        </motion.span>
         <h2
           style={{
             fontFamily: "'Source Sans 3', sans-serif",
@@ -99,6 +126,8 @@ export default function Services() {
           display: 'grid',
           gridTemplateColumns: 'repeat(3, 1fr)',
           gap: 32,
+          position: 'relative',
+          zIndex: 1,
         }}
       >
         {services.map((service, index) => (
@@ -108,7 +137,11 @@ export default function Services() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: index * 0.1 }}
-            whileHover={{ y: -8, boxShadow: `0 24px 48px ${colors.shadowHover}` }}
+            whileHover={{ 
+              y: -8, 
+              boxShadow: `0 24px 48px ${colors.shadowHover}`,
+              borderColor: colors.primary
+            }}
             style={{
               padding: '40px 32px',
               background: colors.surface,
@@ -117,25 +150,41 @@ export default function Services() {
               transition: 'all 0.4s ease',
               position: 'relative',
               overflow: 'hidden',
+              border: '1px solid transparent',
             }}
           >
-            {/* Subtle top accent */}
-            <div style={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              right: 0,
-              height: 3,
-              background: index % 2 === 0 
-                ? `linear-gradient(90deg, ${colors.primary}, ${colors.accent})`
-                : `linear-gradient(90deg, ${colors.accent}, ${colors.primary})`,
-              opacity: 0,
-              transition: 'opacity 0.3s',
-            }} 
-            className="service-accent"
+            {/* Animated top accent */}
+            <motion.div 
+              initial={{ scaleX: 0 }}
+              whileHover={{ scaleX: 1 }}
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                right: 0,
+                height: 3,
+                background: index % 2 === 0 
+                  ? `linear-gradient(90deg, ${colors.primary}, ${colors.accent})`
+                  : `linear-gradient(90deg, ${colors.accent}, ${colors.primary})`,
+                transformOrigin: 'left',
+              }}
             />
 
-            <div
+            {/* Corner decoration */}
+            <div style={{
+              position: 'absolute',
+              top: 12,
+              right: 12,
+              width: 20,
+              height: 20,
+              borderTop: `2px solid ${colors.border}`,
+              borderRight: `2px solid ${colors.border}`,
+              borderTopRightRadius: 4,
+              opacity: 0.5,
+            }} />
+
+            <motion.div
+              whileHover={{ scale: 1.1, rotate: 5 }}
               style={{
                 width: 56,
                 height: 56,
@@ -152,7 +201,7 @@ export default function Services() {
               }}
             >
               <service.icon size={24} />
-            </div>
+            </motion.div>
 
             <h3
               style={{
@@ -181,9 +230,6 @@ export default function Services() {
       </div>
 
       <style>{`
-        .service-accent {
-          opacity: 1;
-        }
         @media (max-width: 1024px) {
           div[style*="grid-template-columns: repeat(3"] {
             grid-template-columns: repeat(2, 1fr) !important;

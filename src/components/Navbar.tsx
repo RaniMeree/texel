@@ -2,12 +2,21 @@
 
 import { useTheme } from '@/context/ThemeContext';
 import { Menu, X } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Navbar() {
   const { colors } = useTheme();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const navLinks = [
     { href: '#over-ons', label: 'Over Ons' },
@@ -16,16 +25,27 @@ export default function Navbar() {
   ];
 
   return (
-    <header
+    <motion.header
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5 }}
       style={{
         position: 'fixed',
         top: 0,
         left: 0,
         right: 0,
         zIndex: 1000,
-        background: 'rgba(250, 252, 254, 0.85)',
+        background: scrolled 
+          ? 'rgba(240, 244, 248, 0.95)' 
+          : 'rgba(250, 252, 254, 0.85)',
         backdropFilter: 'blur(20px)',
-        borderBottom: `1px solid ${colors.border}`,
+        borderBottom: scrolled 
+          ? `1px solid ${colors.border}` 
+          : '1px solid transparent',
+        boxShadow: scrolled 
+          ? `0 4px 24px ${colors.shadow}` 
+          : 'none',
+        transition: 'all 0.3s ease',
       }}
     >
       <nav
@@ -39,21 +59,26 @@ export default function Navbar() {
         }}
       >
         {/* Logo */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+        <motion.div 
+          whileHover={{ scale: 1.02 }}
+          style={{ display: 'flex', alignItems: 'center', gap: 12 }}
+        >
           <img 
             src="/logo.png" 
             alt="Texel Services" 
             style={{ height: 64, width: 'auto' }} 
           />
-        </div>
+        </motion.div>
 
         {/* Desktop Nav */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 48 }}>
           <div style={{ display: 'flex', gap: 8 }}>
             {navLinks.map((link) => (
-              <a
+              <motion.a
                 key={link.href}
                 href={link.href}
+                whileHover={{ scale: 1.05, backgroundColor: colors.backgroundAlt }}
+                whileTap={{ scale: 0.95 }}
                 style={{
                   fontFamily: "'Source Sans 3', sans-serif",
                   fontSize: '0.85rem',
@@ -75,13 +100,15 @@ export default function Navbar() {
                 }}
               >
                 {link.label}
-              </a>
+              </motion.a>
             ))}
           </div>
 
           {/* CTA Button */}
-          <a
+          <motion.a
             href="#contact"
+            whileHover={{ scale: 1.05, boxShadow: `0 8px 24px ${colors.shadowHover}`, y: -2 }}
+            whileTap={{ scale: 0.98 }}
             style={{
               fontFamily: "'Source Sans 3', sans-serif",
               fontSize: '0.85rem',
@@ -95,21 +122,14 @@ export default function Navbar() {
               transition: 'all 0.3s ease',
               letterSpacing: '0.3px',
             }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = 'translateY(-2px)';
-              e.currentTarget.style.boxShadow = `0 8px 24px ${colors.shadowHover}`;
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.boxShadow = `0 4px 16px ${colors.shadow}`;
-            }}
           >
             Offerte aanvragen
-          </a>
+          </motion.a>
         </div>
 
         {/* Mobile Menu Button */}
-        <button
+        <motion.button
+          whileTap={{ scale: 0.9 }}
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           style={{
             display: 'none',
@@ -122,7 +142,7 @@ export default function Navbar() {
           className="mobile-menu-btn"
         >
           {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        </motion.button>
       </nav>
 
       {/* Mobile Menu */}
@@ -138,10 +158,13 @@ export default function Navbar() {
               padding: '20px',
             }}
           >
-            {navLinks.map((link) => (
-              <a
+            {navLinks.map((link, index) => (
+              <motion.a
                 key={link.href}
                 href={link.href}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: index * 0.1 }}
                 onClick={() => setMobileMenuOpen(false)}
                 style={{
                   display: 'block',
@@ -153,8 +176,29 @@ export default function Navbar() {
                 }}
               >
                 {link.label}
-              </a>
+              </motion.a>
             ))}
+            <motion.a
+              href="#contact"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              onClick={() => setMobileMenuOpen(false)}
+              style={{
+                display: 'block',
+                marginTop: 16,
+                padding: '14px',
+                background: `linear-gradient(135deg, ${colors.primary} 0%, ${colors.primaryDark} 100%)`,
+                color: '#fff',
+                textAlign: 'center',
+                borderRadius: 8,
+                textDecoration: 'none',
+                fontFamily: "'Source Sans 3', sans-serif",
+                fontWeight: 600,
+              }}
+            >
+              Offerte aanvragen
+            </motion.a>
           </motion.div>
         )}
       </AnimatePresence>
@@ -172,6 +216,6 @@ export default function Navbar() {
           }
         }
       `}</style>
-    </header>
+    </motion.header>
   );
 }

@@ -38,34 +38,119 @@ export default function Hero() {
         background: `linear-gradient(135deg, ${colors.background} 0%, ${colors.backgroundAlt} 100%)`,
       }}
     >
-      {/* Sophisticated background elements */}
-      <div style={{
-        position: 'absolute',
-        width: 800,
-        height: 800,
-        borderRadius: '50%',
-        background: `radial-gradient(circle, ${colors.primary}06 0%, transparent 70%)`,
-        top: -300,
-        right: -200,
-      }} />
-      <div style={{
-        position: 'absolute',
-        width: 600,
-        height: 600,
-        borderRadius: '50%',
-        background: `radial-gradient(circle, ${colors.accent}05 0%, transparent 70%)`,
-        bottom: -200,
-        left: -100,
-      }} />
+      {/* Animated sophisticated background elements */}
+      <motion.div
+        animate={{
+          scale: [1, 1.1, 1],
+          opacity: [0.3, 0.5, 0.3],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+        style={{
+          position: 'absolute',
+          width: 900,
+          height: 900,
+          borderRadius: '50%',
+          background: `radial-gradient(circle, ${colors.primary}12 0%, transparent 70%)`,
+          top: -350,
+          right: -250,
+        }}
+      />
+      <motion.div
+        animate={{
+          scale: [1, 1.15, 1],
+          opacity: [0.2, 0.4, 0.2],
+        }}
+        transition={{
+          duration: 10,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 1
+        }}
+        style={{
+          position: 'absolute',
+          width: 700,
+          height: 700,
+          borderRadius: '50%',
+          background: `radial-gradient(circle, ${colors.accent}10 0%, transparent 70%)`,
+          bottom: -250,
+          left: -150,
+        }}
+      />
+      
+      {/* Floating decorative elements */}
+      <motion.div
+        animate={{
+          y: [0, -20, 0],
+          rotate: [0, 5, 0],
+        }}
+        transition={{
+          duration: 6,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+        style={{
+          position: 'absolute',
+          top: '20%',
+          left: '10%',
+          width: 60,
+          height: 60,
+          borderRadius: '16px',
+          background: `${colors.primary}08`,
+          border: `1px solid ${colors.border}`,
+        }}
+      />
+      <motion.div
+        animate={{
+          y: [0, 30, 0],
+          rotate: [0, -10, 0],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 2
+        }}
+        style={{
+          position: 'absolute',
+          bottom: '25%',
+          right: '15%',
+          width: 40,
+          height: 40,
+          borderRadius: '50%',
+          background: `${colors.accent}08`,
+          border: `1px solid ${colors.borderLight}`,
+        }}
+      />
       
       {/* Subtle pattern overlay */}
       <div 
         style={{
           position: 'absolute',
           inset: 0,
-          opacity: 0.4,
-          backgroundImage: `radial-gradient(${colors.primary}08 1px, transparent 1px)`,
-          backgroundSize: '32px 32px',
+          opacity: 0.5,
+          backgroundImage: `radial-gradient(${colors.primary}10 1px, transparent 1px)`,
+          backgroundSize: '24px 24px',
+        }}
+      />
+
+      {/* Diagonal accent line */}
+      <motion.div
+        initial={{ scaleX: 0 }}
+        animate={{ scaleX: 1 }}
+        transition={{ duration: 1.5, delay: 0.5 }}
+        style={{
+          position: 'absolute',
+          top: '15%',
+          left: 0,
+          width: 300,
+          height: 1,
+          background: `linear-gradient(90deg, transparent, ${colors.accent}, transparent)`,
+          transform: 'rotate(-15deg)',
+          transformOrigin: 'left',
         }}
       />
 
@@ -101,8 +186,9 @@ export default function Hero() {
               color: colors.accent,
               marginBottom: 24,
               padding: '8px 16px',
-              background: `${colors.accent}10`,
+              background: `${colors.accent}12`,
               borderRadius: 6,
+              border: `1px solid ${colors.accent}20`,
             }}
           >
             Vakmanschap & Betrouwbaarheid
@@ -145,7 +231,7 @@ export default function Hero() {
           <motion.div variants={itemVariants} style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
             <motion.a
               href="#contact"
-              whileHover={{ scale: 1.03 }}
+              whileHover={{ scale: 1.03, boxShadow: `0 12px 40px ${colors.shadowHover}` }}
               whileTap={{ scale: 0.98 }}
               style={{
                 display: 'inline-flex',
@@ -180,7 +266,8 @@ export default function Hero() {
             alignItems: 'center',
           }}
         >
-          <div
+          <motion.div
+            whileHover={{ scale: 1.02 }}
             style={{
               position: 'relative',
               borderRadius: 24,
@@ -188,6 +275,7 @@ export default function Hero() {
               boxShadow: `0 32px 80px ${colors.shadowHover}, 0 16px 40px ${colors.shadow}`,
             }}
           >
+            {/* Image accent bar */}
             <div style={{
               position: 'absolute',
               top: 0,
@@ -195,6 +283,27 @@ export default function Hero() {
               right: 0,
               height: 4,
               background: `linear-gradient(90deg, ${colors.primary}, ${colors.accent})`,
+            }} />
+            {/* Corner accents */}
+            <div style={{
+              position: 'absolute',
+              top: 10,
+              left: 10,
+              width: 30,
+              height: 30,
+              borderTop: `2px solid ${colors.accent}`,
+              borderLeft: `2px solid ${colors.accent}`,
+              borderTopLeftRadius: 8,
+            }} />
+            <div style={{
+              position: 'absolute',
+              bottom: 10,
+              right: 10,
+              width: 30,
+              height: 30,
+              borderBottom: `2px solid ${colors.primary}`,
+              borderRight: `2px solid ${colors.primary}`,
+              borderBottomRightRadius: 8,
             }} />
             <img 
               src="/hero-image.webp" 
@@ -207,7 +316,7 @@ export default function Hero() {
                 display: 'block',
               }} 
             />
-          </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>
