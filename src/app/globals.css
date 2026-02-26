@@ -6,6 +6,8 @@
 
 html {
   scroll-behavior: smooth;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -14,6 +16,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: linear-gradient(180deg, #F0F4F8 0%, #E4ECF3 100%);
   min-height: 100vh;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 a {

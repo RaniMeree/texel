@@ -296,21 +296,6 @@ export default function Footer() {
         </p>
       </motion.div>
 
-      <style>{`
-        @media (max-width: 768px) {
-          div[style*="grid-template-columns: 1.5fr 1fr 1fr"] {
-            grid-template-columns: 1fr !important;
-            text-align: center;
-          }
-          div[style*="display: flex"]:has(div[style*="width: 40px"]) {
-            justify-content: center !important;
-          }
-          footer > div:first-of-type {
-            flex-direction: column;
-            text-align: center;
-          }
-        }
-      `}</style>
     </footer>
   );
 }
