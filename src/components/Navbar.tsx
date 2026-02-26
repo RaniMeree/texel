@@ -36,8 +36,8 @@ export default function Navbar() {
         right: 0,
         zIndex: 1000,
         background: scrolled 
-          ? 'rgba(10, 20, 34, 0.95)' 
-          : 'rgba(10, 20, 34, 0.85)',
+          ? `linear-gradient(180deg, ${colors.primaryDark} 0%, ${colors.primary} 100%)`
+          : `linear-gradient(180deg, ${colors.primaryDark} 0%, ${colors.primary} 100%)`,
         backdropFilter: 'blur(20px)',
         borderBottom: scrolled 
           ? `1px solid ${colors.border}` 
@@ -45,6 +45,7 @@ export default function Navbar() {
         boxShadow: scrolled 
           ? `0 4px 24px ${colors.shadow}` 
           : 'none',
+        color: '#fff',
         transition: 'all 0.3s ease',
       }}
     >
