@@ -58,9 +58,9 @@ export default function Navbar() {
           style={{ display: 'flex', alignItems: 'center', gap: 12 }}
         >
           <img 
-            src="/logo2.png" 
+            src="/logo2-white.png" 
             alt="Texel Services" 
-            style={{ height: 64, width: 'auto', filter: 'brightness(0) invert(1)' }} 
+            style={{ height: 64, width: 'auto' }} 
           />
         </motion.div>
 
