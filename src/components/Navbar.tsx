@@ -159,7 +159,18 @@ export default function Navbar() {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: index * 0.1 }}
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={(e) => {
+                  e.preventDefault();
+                  const targetId = link.href.replace('#', '');
+                  const el = document.getElementById(targetId);
+                  if (el) {
+                    const headerOffset = 90;
+                    const rect = el.getBoundingClientRect();
+                    const offsetTop = rect.top + window.scrollY - headerOffset;
+                    window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+                  }
+                  setMobileMenuOpen(false);
+                }}
                 style={{
                   display: 'block',
                   padding: '14px 0',
@@ -177,7 +188,17 @@ export default function Navbar() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={(e) => {
+                e.preventDefault();
+                const el = document.getElementById('contact');
+                if (el) {
+                  const headerOffset = 90;
+                  const rect = el.getBoundingClientRect();
+                  const offsetTop = rect.top + window.scrollY - headerOffset;
+                  window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+                }
+                setMobileMenuOpen(false);
+              }}
               style={{
                 display: 'block',
                 marginTop: 16,
