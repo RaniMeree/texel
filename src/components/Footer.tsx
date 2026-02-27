@@ -9,6 +9,7 @@ export default function Footer() {
 
   return (
     <footer
+      className="site-footer"
       style={{
         background: `linear-gradient(180deg, ${colors.primaryDark} 0%, ${colors.primary} 100%)`,
         color: '#fff',
@@ -77,15 +78,18 @@ export default function Footer() {
         }}
       />
 
-      <div style={{
-        maxWidth: 1100,
-        margin: '0 auto',
-        display: 'grid',
-        gridTemplateColumns: '1.5fr 1fr 1fr',
-        gap: 60,
-        position: 'relative',
-        zIndex: 1,
-      }}>
+      <div
+        className="footer-grid"
+        style={{
+          maxWidth: 1100,
+          margin: '0 auto',
+          display: 'grid',
+          gridTemplateColumns: '1.5fr 1fr 1fr',
+          gap: 60,
+          position: 'relative',
+          zIndex: 1,
+        }}
+      >
         {/* Brand */}
         <div>
           <motion.div 
@@ -264,7 +268,8 @@ export default function Footer() {
       </div>
 
       {/* Bottom */}
-      <motion.div 
+      <motion.div
+        className="footer-bottom"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
@@ -296,6 +301,23 @@ export default function Footer() {
         </p>
       </motion.div>
 
+      <style>{`
+        @media (max-width: 768px) {
+          .site-footer {
+            padding: 48px 20px 32px !important;
+          }
+          .footer-grid {
+            grid-template-columns: 1fr !important;
+            gap: 32px !important;
+          }
+          .footer-bottom {
+            flex-direction: column !important;
+            text-align: center !important;
+            margin-top: 40px !important;
+            padding-top: 24px !important;
+          }
+        }
+      `}</style>
     </footer>
   );
 }
