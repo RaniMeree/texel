@@ -292,13 +292,30 @@ export default function Footer() {
         }}>
           © 2024 Texel Services. Alle rechten voorbehouden.
         </p>
-        <p style={{ 
-          fontFamily: "'Source Sans 3', sans-serif", 
-          fontSize: '0.8rem', 
-          opacity: 0.4 
-        }}>
-          KvK: 99574039 | BTW: NL005395866B38
-        </p>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 4, alignItems: 'flex-end' }}>
+          <p style={{ 
+            fontFamily: "'Source Sans 3', sans-serif", 
+            fontSize: '0.8rem', 
+            opacity: 0.4 
+          }}>
+            KvK: 99574039 | BTW: NL005395866B38
+          </p>
+          <p style={{
+            fontFamily: "'Source Sans 3', sans-serif",
+            fontSize: '0.8rem',
+            opacity: 0.6,
+          }}>
+            Created by{' '}
+            <a 
+              href="https://www.intellinovasolutions.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{ color: '#fff', textDecoration: 'underline', opacity: 0.9 }}
+            >
+              Intellinova
+            </a>
+          </p>
+        </div>
       </motion.div>
 
       <style>{`
