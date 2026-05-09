@@ -307,12 +307,12 @@ export default function Footer() {
           }}>
             Created by{' '}
             <a 
-              href="https://www.intellinovasolutions.com" 
+              href="https://www.intellivation.io" 
               target="_blank" 
               rel="noopener noreferrer"
               style={{ color: '#fff', textDecoration: 'underline', opacity: 0.9 }}
             >
-              Intellinova
+              Intellivation AB
             </a>
           </p>
         </div>
